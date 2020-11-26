@@ -23,6 +23,13 @@
     expenses = expenses.filter(i => i.id !== id)
   }
 
+  const clearExpenses = () => {
+    console.log('clear pushed')
+    expenses = []
+  }
+
+
+
   // context
   // setContext('remove', removeExpense)
   setContext('state', state)
@@ -38,4 +45,10 @@
   <!-- <ExpensesList expenses={expenses} />
   can be written like this -->
   <ExpensesList {expenses} />
+
+  <button
+    type="button"
+    class="btn btn-primary btn-block"
+    on:click={clearExpenses}
+    >clear expenses</button>
 </main>

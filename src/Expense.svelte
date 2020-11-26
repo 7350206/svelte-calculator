@@ -10,6 +10,12 @@
   export let id
   export let name =''
   export let amount = 0
+  let displayAmount = false
+
+  const toggleAmount = () => {
+    displayAmount = !displayAmount
+  }
+
 
   // context
   // const removeExpense = getContext('remove')
@@ -25,11 +31,16 @@
 <div class='expense-info'>
   <h3>
     {name}
-    <button class='amount-btn'>
+    <button
+      class='amount-btn'
+      on:click={toggleAmount}
+      >
       <i class='fas fa-caret-down'></i>
     </button>
   </h3>
-  <h3>amount: BYN {amount}</h3>
+  {#if displayAmount}
+    <h3>amount: BYN {amount}</h3>
+  {/if}
 </div>
 <div class='expense-buttons'>
   <button class='expense-btn edit-btn'>
