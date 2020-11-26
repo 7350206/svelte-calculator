@@ -1,4 +1,7 @@
 <script>
+
+  import { getContext } from 'svelte'
+
   /* export let expense
   let {name, amount} = expense
   console.log(expense) */
@@ -7,6 +10,11 @@
   export let id
   export let name =''
   export let amount = 0
+
+  // context
+  const removeExpense = getContext('remove')
+
+
 </script>
 
 
@@ -25,7 +33,10 @@
   <button class='expense-btn edit-btn'>
     <i class='fas fa-pen'></i>
   </button>
-  <button class='expense-btn delete-btn'>
+  <button
+    class='expense-btn delete-btn'
+    on:click={()=> removeExpense(id)}
+    >
     <i class='fas fa-trash'></i>
   </button>
 </div>

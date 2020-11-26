@@ -1,5 +1,7 @@
 <script>
-	import Title from './Title.svelte';
+  import { setContext } from 'svelte'
+
+  import Title from './Title.svelte';
   import Navbar from './Navbar.svelte';
   import ExpensesList from './ExpensesList.svelte'
 
@@ -9,6 +11,15 @@
   // load data to app to iterate through
   let expenses = [...expencesData] //make a local copy
   // console.log(expences)
+
+  //
+  function removeExpense(id){
+    console.log(`remove ${id}`)
+    expenses = expenses.filter(i => i.id !== id)
+  }
+
+  // context
+  setContext('remove', removeExpense)
 
 </script>
 
