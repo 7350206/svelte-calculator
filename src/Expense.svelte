@@ -12,7 +12,9 @@
   export let amount = 0
 
   // context
-  const removeExpense = getContext('remove')
+  // const removeExpense = getContext('remove')
+  // const state = getContext('state')
+  const {remove} = getContext('state')
 
 
 </script>
@@ -35,7 +37,7 @@
   </button>
   <button
     class='expense-btn delete-btn'
-    on:click={()=> removeExpense(id)}
+    on:click={()=> remove(id)}
     >
     <i class='fas fa-trash'></i>
   </button>

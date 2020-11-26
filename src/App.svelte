@@ -1,6 +1,11 @@
 <script>
   import { setContext } from 'svelte'
 
+  const state = {
+    name: "simple name",
+    remove: removeExpense
+  }
+
   import Title from './Title.svelte';
   import Navbar from './Navbar.svelte';
   import ExpensesList from './ExpensesList.svelte'
@@ -19,7 +24,8 @@
   }
 
   // context
-  setContext('remove', removeExpense)
+  // setContext('remove', removeExpense)
+  setContext('state', state)
 
 </script>
 
