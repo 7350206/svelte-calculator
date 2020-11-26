@@ -10,6 +10,14 @@
   let expenses = [...expencesData] //make a local copy
   // console.log(expences)
 
+
+  // prop drill pattern
+  // function to pass as a prop into Expense component
+  function removeExpense(id){
+    console.log(`delete ${id}`)
+    expenses = expenses.filter(i => i.id !== id)
+  }
+
 </script>
 
 
@@ -20,5 +28,5 @@
 <main class='content'>
   <!-- <ExpensesList expenses={expenses} />
   can be written like this -->
-  <ExpensesList {expenses} />
+  <ExpensesList {expenses} {removeExpense} />
 </main>
