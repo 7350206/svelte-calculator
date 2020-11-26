@@ -6,6 +6,7 @@
     remove: removeExpense
   }
 
+  import Totals from './Totals.svelte';
   import Title from './Title.svelte';
   import Navbar from './Navbar.svelte';
   import ExpensesList from './ExpensesList.svelte'
@@ -16,6 +17,14 @@
   // load data to app to iterate through
   let expenses = [...expencesData] //make a local copy
   // console.log(expences)
+
+
+  // reactive
+  $: totals = expenses.reduce((acc, expense) => {
+    console.log({acc, expense:expense.amount})
+    return (acc += expense.amount)
+  }, 0)
+
 
   //
   function removeExpense(id){
@@ -44,6 +53,7 @@
 <main class='content'>
   <!-- <ExpensesList expenses={expenses} />
   can be written like this -->
+  <Totals title="total amount" {totals}/>
   <ExpensesList {expenses} />
 
   <button
