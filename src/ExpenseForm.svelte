@@ -16,7 +16,14 @@
 // return true if both of them are false
 $: isEmpty = !name || !amount
 
-
+function handleSubmit(){
+  // do with modifier instead
+  // evt.preventDefault()
+  console.log({name, amount})
+  // nulled (with 2way binding )))
+  name=''
+  amount = null
+}
 
 
 </script>
@@ -27,7 +34,10 @@ $: isEmpty = !name || !amount
 <p>amount: {amount}</p> -->
 <section class='form'>
   <Title title="add some expense"/>
-  <form class='expense-form'>
+  <form
+    class='expense-form'
+    on:submit|preventDefault={handleSubmit}
+    >
     <div class='form-control'>
       <!-- need input with the same id -->
       <label for='name'>Name</label>
@@ -37,9 +47,8 @@ $: isEmpty = !name || !amount
       <!-- disabled button class example
       class={isActive ? 'active' :''}
       class:active={isActive} svelte way
-      class:active={active} if
+      class:active={active} if names 'active' are the same
       -->
-
 
       <!-- need input with the same id -->
       <label for='amount'>Amount</label>
