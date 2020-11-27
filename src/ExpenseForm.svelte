@@ -1,6 +1,9 @@
 <!-- <h3>hi from expense form</h3> -->
 
 <script>
+
+  export let addExpense
+
   import Title from './Title.svelte'
   let name = ""
   let amount = null
@@ -19,7 +22,8 @@ $: isEmpty = !name || !amount
 function handleSubmit(){
   // do with modifier instead
   // evt.preventDefault()
-  console.log({name, amount})
+  // console.log({name, amount})
+  addExpense({name, amount})
   // nulled (with 2way binding )))
   name=''
   amount = null

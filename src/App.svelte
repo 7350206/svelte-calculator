@@ -27,6 +27,19 @@
   }, 0)
 
 
+  function addExpense ({name, amount}){
+    // console.log(name, amount)
+    let expense = {
+      id: Math.random()*Date.now(),
+      name,
+      amount
+    }
+    // add new exp to infront of existing arr
+    expenses = [expense, ...expenses]
+  }
+
+
+
   //
   function removeExpense(id){
     console.log(`remove ${id}`)
@@ -54,7 +67,7 @@
 <main class='content'>
   <!-- <ExpensesList expenses={expenses} />
   can be written like this -->
-  <ExpenseForm />
+  <ExpenseForm {addExpense} />
   <Totals title="total amount" {totals}/>
   <ExpensesList {expenses} />
 
