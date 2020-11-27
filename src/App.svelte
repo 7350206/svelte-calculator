@@ -7,6 +7,7 @@
   }
 
   import Totals from './Totals.svelte';
+  import ExpenseForm  from "./ExpenseForm.svelte";
   import Title from './Title.svelte';
   import Navbar from './Navbar.svelte';
   import ExpensesList from './ExpensesList.svelte'
@@ -53,6 +54,7 @@
 <main class='content'>
   <!-- <ExpensesList expenses={expenses} />
   can be written like this -->
+  <ExpenseForm />
   <Totals title="total amount" {totals}/>
   <ExpensesList {expenses} />
 
