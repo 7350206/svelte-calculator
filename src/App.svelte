@@ -3,7 +3,8 @@
 
   const state = {
     name: "simple name",
-    remove: removeExpense
+    remove: removeExpense,
+    modify: setModifiedExpense
   }
 
   import Totals from './Totals.svelte';
@@ -19,6 +20,11 @@
   let expenses = [...expencesData] //make a local copy
   // console.log(expences)
 
+  // prepare expense vars to editing
+  let setId = null
+  let setName = ""
+  let setAmount = null
+
 
   // reactive
   $: totals = expenses.reduce((acc, expense) => {
@@ -26,6 +32,14 @@
     return (acc += expense.amount)
   }, 0)
 
+  // expense componeny is 2 levels deep, so setContext for that
+  function setModifiedExpense(id){
+    let expense = expenses.find(item => item.id === id)
+    console.log('expense to edit:', expense)
+    setId = expense.id
+    setName = expense.name
+    setAmount = expense.amount
+  }
 
   function addExpense ({name, amount}){
     // console.log(name, amount)
@@ -56,7 +70,7 @@
   // context
   // setContext('remove', removeExpense)
   setContext('state', state)
-
+  setContext('modify', setModifiedExpense)
 </script>
 
 

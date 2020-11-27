@@ -20,7 +20,9 @@
   // context
   // const removeExpense = getContext('remove')
   // const state = getContext('state')
-  const {remove} = getContext('state')
+  const {remove, modify} = getContext('state')
+  // const {modify} = getContext('state')
+  // const editExpense = getContext('modify')
 
 
 </script>
@@ -43,7 +45,10 @@
   {/if}
 </div>
 <div class='expense-buttons'>
-  <button class='expense-btn edit-btn'>
+  <button
+    class='expense-btn edit-btn'
+    on:click={()=>modify(id)}
+  >
     <i class='fas fa-pen'></i>
   </button>
   <button
